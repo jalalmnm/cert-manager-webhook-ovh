@@ -211,6 +211,8 @@ func (s *ovhDNSProviderSolver) ovhClient(ch *v1alpha1.ChallengeRequest) (*ovh.Cl
 		return nil, err
 	}
 
+	log.Info("Input configuration", "configuration", &cfg)
+
 	switch cfg.AuthenticationMethod {
 	case "application":
 		return s.ovhClientApplication(ch, &cfg)
